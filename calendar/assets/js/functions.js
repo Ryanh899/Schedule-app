@@ -17,7 +17,6 @@ function fillCalendar (elem) {
         var day = new Day(newDay, i); 
         console.log(day)
         var toAppend = day.date._d.toString().slice(0,10)
-        $('tbody').append(`<td class="p-5"> ${toAppend} </td>`)
-        
+        $('thead').append(`<th scope="col" class="text-center font-weight-bold" id="${toAppend}">${toAppend}</th>`)
     } 
 }
