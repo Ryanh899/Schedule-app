@@ -1,3 +1,7 @@
+
+
+
+
 //prints month to use to schedule
 function scheduling () {
     for (var i = 0; i < moment().daysInMonth(); i++) {
@@ -27,5 +31,8 @@ function addShift () {
     $('.shiftButton').on('click', function () {
         var shift = new employeeByDay($(this).attr('id'), prompt('Pick an employee'), prompt('Input hours') );
         $(this).parent().append(`<p id="${$(this).employee}"> ${shift.employee}: ${shift.hours.toString()}</p>`);
+        firebase.database().ref(`day-${shift.date}`).set({
+            shift: shift.employee
+        })
     })
 }

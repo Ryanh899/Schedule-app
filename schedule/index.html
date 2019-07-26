@@ -15,7 +15,40 @@
 </head>
 
 <body>
-    <div class="calendar">
+    <button class="signIn-button" onclick="signOpenForm()">Sign In</button>
+    <div class="signIn-form-popup" id="signIn-myForm">
+        <form action="/action_page.php" class="form-container">
+            <h1>Sign In</h1>
+
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <button type="submit" class="btn" id="createUserForm">Sign In</button>
+            <button type="button" class="btn cancel" onclick="signCloseForm()">Close</button>
+        </form>
+    </div>
+
+    <button class="create-button" onclick="openForm()">Create User</button>
+    <div class="form-popup" id="myForm">
+        <form action="/action_page.php" class="form-container">
+            <h1>Create User</h1>
+
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <button type="submit" class="btn" id="createUserForm">Submit</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+
+
+    <div class="calendar" style="display: none">
         <table class="table table-bordered">
             <tbody>
                 <tr id="week-1"></tr>
@@ -25,10 +58,12 @@
             </tbody>
         </table>
     </div>
-
+    <script src="https://www.gstatic.com/firebasejs/6.3.2/firebase.js"></script>
     <script>
         moment().format();
     </script>
+     <script src="./assets/js/signIn.js" type="text/javascript"></script>
+    <script src="./assets/js/createUser.js" type="text/javascript"></script>
     <script src="./assets/js/variables.js" type="text/javascript"></script>
     <script src="./assets/js/functions.js" type="text/javascript"></script>
     <script src="./assets/js/main.js" type="text/javascript"></script>
